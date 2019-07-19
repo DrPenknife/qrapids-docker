@@ -48,23 +48,23 @@ Q-Rapids consortium consists of seven organisations from five countries.
 
 # Build images
 
-Go to the main folder where the docker-compose file is located and follow below instruction
+Go to the main directory where the docker-compose file is located and follow the instruction
 
 ```bash
 docker-compose build
 ```
-It may take a few moments
+Please notice that this make take some time to finish.
 
 
 # Quick Start
 
-After build all images, we can running whole environment starting from PostgresSQL, Sonarcube, Elasticsearch, Kafka and zookeeper
+After building all images, we can set up the entire environment including PostgresSQL, Sonarcube, Elasticsearch, Kafka, and Zookeeper
 
 ```bash
 # Running required tools
 docker-compose up -d sonarqube zookeeper kafka elasticsearch kibana db
 ```
-Verify all services have been started correctly. In the next step, we need to add an example project into our running Sonarcube.
+Verify all services have been started correctly. In the next step, we need to add an example project to analyse it with Sonarcube. This step is needed to produce the minimum amount of data for Q-Rapids tools. 
 
 ```bash
 # Add Example project into SonarCube
@@ -77,8 +77,8 @@ When we adding example project into Sonarcube we have to run  qrconnect_sonar, d
 docker-compose up -d qrconnect_sonar pabrews dashboard rbase qralert siassessment-rest  forecast-rest
 ```
 
-**Attention** ! First start Rbase component will take some time because all dependencies must be downloaded. 
-Only after finishing, go to the next step.
+**Important** It will take some time to start the Rbase component for the first time. This is due to the dependencies that need to be downloaded and compiled. Please wait until this process is finished. Afterwards, continue with the following command:
+
 
 ```bash
 docker-compose up -d  qreval
